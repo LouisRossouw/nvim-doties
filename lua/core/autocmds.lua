@@ -10,3 +10,18 @@ autocmd("TextYankPost", {
         vim.highlight.on_yank()
     end,
 })
+
+
+-- Automatically show function signature while typing
+vim.api.nvim_create_autocmd("InsertCharPre", {
+    callback = function()
+        local char = vim.v.char
+
+        if char == "(" or char == "," then
+            vim.schedule(function()
+                vim.lsp.buf.signature_help()
+            end)
+        end
+    end,
+})
+

@@ -12,3 +12,13 @@ require("catppuccin").setup({
 vim.cmd.colorscheme("catppuccin")
 
 require("plugins.oil")
+
+
+require("plugins.lsp")
+
+require("plugins.completion")
+
+
+require("plugins.git")
+
+require("plugins.which-key")
