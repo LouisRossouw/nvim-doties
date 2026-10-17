@@ -135,3 +135,7 @@ map("i", "<C-k>", function()
 end, {
     desc = "Show function signature",
 })
+
+vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", {
+  desc = "Toggle file explorer",
+})
