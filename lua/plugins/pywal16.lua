@@ -2,7 +2,7 @@ vim.pack.add({
   { src = "https://github.com/uZer/pywal16.nvim" },
 })
 
-vim.env.PYWAL_CACHE_DIR = vim.env.USERPROFILE .. "\\.cache\\wal"
+vim.env.PYWAL_CACHE_DIR = vim.fn.expand("~/.cache/wal")
 
 require("pywal16").setup()
 vim.cmd("colorscheme pywal16")

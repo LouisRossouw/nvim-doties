@@ -105,41 +105,11 @@ Plugin versions are pinned in `nvim-pack-lock.json`, so you get the same version
 
 ## Platform-specific setup
 
-Some parts of the config were written for Windows and need changing on other systems.
+The config works on Windows, Linux, and macOS without changes. The floating terminal uses PowerShell on Windows and your `shell` option elsewhere, and the pywal cache lives at `~/.cache/wal` on all platforms.
 
-### Floating terminal (`lua/plugins/fterm.lua`)
+### pywal colours
 
-The terminal is hardcoded to PowerShell:
-
-```lua
-cmd = function()
-  return "powershell.exe"
-end,
-```
-
-On Linux and macOS, change this to use your shell:
-
-```lua
-cmd = function()
-  return vim.o.shell
-end,
-```
-
-### pywal colours (`lua/plugins/pywal16.lua`)
-
-The pywal cache path is built from `USERPROFILE`, which only exists on Windows:
-
-```lua
-vim.env.PYWAL_CACHE_DIR = vim.env.USERPROFILE .. "\\.cache\\wal"
-```
-
-On Linux and macOS, change it to:
-
-```lua
-vim.env.PYWAL_CACHE_DIR = vim.fn.expand("~/.cache/wal")
-```
-
-Then generate the colours once, using an image of your choice:
+Generate the colours once, using an image of your choice:
 
 ```sh
 wal -i /path/to/wallpaper.jpg

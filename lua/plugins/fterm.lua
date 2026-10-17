@@ -4,7 +4,10 @@ vim.pack.add({
 
 require("FTerm").setup({
   cmd = function()
-    return "powershell.exe"
+    if vim.fn.has("win32") == 1 then
+      return "powershell.exe"
+    end
+    return vim.o.shell
   end,
 })
 
